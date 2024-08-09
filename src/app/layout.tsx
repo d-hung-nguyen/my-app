@@ -17,37 +17,37 @@ export default function RootLayout({
 }>) {
 	return (
 		<html lang="en">
-			<body className="min-h-screen flex flex-col p-4 m-auto">
+			<body className=" p-4 m-auto">
 				{/* Header */}
 				<header className="bg-white shadow-md">
 					<div className="container mx-auto px-6 py-4 flex justify-between items-center">
 						<Link href="/">
-							<text className="text-xl font-bold text-gray-800">MyWebsite</text>
+							<text className="text-xl font-bold text-gray-800">Mövenpick Resort Kuredhivaru Maldives</text>
 						</Link>
 						<nav className="space-x-6">
-							<Link href="/about">
-								<text className="text-gray-600 hover:text-gray-800">About</text>
+							<Link href="/">
+								<text className="text-gray-600 hover:text-gray-800">Home</text>
 							</Link>
-							<Link href="/services">
-								<text className="text-gray-600 hover:text-gray-800">Services</text>
+							<Link href="/rate-calculator">
+								<text className="text-gray-600 hover:text-gray-800">Rate calculator</text>
 							</Link>
-							<Link href="/contact">
-								<text className="text-gray-600 hover:text-gray-800">Contact</text>
+							<Link href="/contract">
+								<text className="text-gray-600 hover:text-gray-800">Contract</text>
 							</Link>
 						</nav>
 					</div>
 				</header>
 
 				{/* Main Content */}
-				<main className="flex-grow container mx-auto p-4">{children}</main>
+				<main>{children}</main>
 
 				{/* Footer */}
 				<footer className="bg-gray-800 text-white">
 					<div className="container mx-auto px-6 py-4">
 						<div className="flex justify-between">
 							<div>
-								<text className="font-bold text-lg">MyWebsite</text>
-								<text className="mt-2 text-sm">© {new Date().getFullYear()} MyWebsite. All rights reserved.</text>
+								<text className="font-bold text-lg">Mövenpick Resort Kuredhivaru Maldives</text>
+								<text className="mt-2 text-sm">© {new Date().getFullYear()} Hung Nguyen</text>
 							</div>
 							<div className="space-x-6">
 								<Link href="/privacy">

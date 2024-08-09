@@ -1,11 +1,11 @@
-import RoomRateCalculator from "@/components/RoomRateCalculator"
+import BentoGridDemo from "@/components/BentoGridDemo"
+import { HeroScroll } from "@/components/HeroScroll"
 
-import ContractPage from "@/components/ContractPage"
 export default function HomePage() {
 	return (
 		<div>
-			<RoomRateCalculator />
-			<ContractPage />
+			<HeroScroll />
+			<BentoGridDemo />
 		</div>
 	)
 }
