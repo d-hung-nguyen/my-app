@@ -1,34 +1,31 @@
 "use client"
 import React, { useState } from "react"
-import { HoveredLink, Menu, MenuItem, ProductItem } from "@/components/ui/navbar-menu"
+import { Menu, MenuItem } from "@/components/ui/navbar-menu"
 import { cn } from "@/lib/utils"
 
-export function NavbarMenu() {
-	return (
-		<div className="relative w-full flex">
-			<Navbar className="top-2" />
-			<p className="text-white dark:text-black gap-20">The Navbar will show on top of the page</p>
-		</div>
-	)
-}
+import Link from "next/link"
 
-function Navbar({ className }: { className?: string }) {
+export default function Navbar({ className }: { className?: string }) {
 	const [active, setActive] = useState<string | null>(null)
 	return (
-		<div className={cn("fixed  items-center justify-between inset-x-0 max-w-2xl mx-auto gap-20 z-50", className)}>
-			<Menu setActive={setActive}>
-				<HoveredLink href="/">Home </HoveredLink>
-				<HoveredLink href="/rate-calculator">| Rate Calculator | </HoveredLink>
-				<HoveredLink href="/contract"> Contract |</HoveredLink>
+		<div className="fixed">
+			<div className={cn(" z-50 min-w-full items-center  justify-center", className)}>
+				<Menu setActive={setActive}>
+					<div className="flex flex-row space-x-5">
+						<Link href="/">Home </Link>
+						<Link href="/rate-calculator">Rate Calculator</Link>
+						<Link href="/contract">Contract</Link>
 
-				<MenuItem setActive={setActive} active={active} item="Updates">
-					<div className="flex flex-col space-y-4 text-sm">
-						<HoveredLink href="/rates-and-offers">Rates and Offers</HoveredLink>
-						<HoveredLink href="/availability">Availability</HoveredLink>
-						<HoveredLink href="/team">Team</HoveredLink>
+						<MenuItem setActive={setActive} active={active} item="Updates">
+							<div className="flex flex-col space-y-4 text-sm">
+								<Link href="/rates-and-offers">Rates and Offers</Link>
+								<Link href="/availability">Availability</Link>
+								<Link href="/team">Team</Link>
+							</div>
+						</MenuItem>
 					</div>
-				</MenuItem>
-			</Menu>
+				</Menu>
+			</div>
 		</div>
 	)
 }

@@ -2,7 +2,7 @@ import type { Metadata } from "next"
 import { Inter } from "next/font/google"
 import "./globals.css"
 import Link from "next/link"
-import { NavbarMenu } from "@/components/Navbar"
+import Navbar from "@/components/Navbar"
 import { Card, CardDescription } from "@/components/ui/card"
 
 const inter = Inter({ subsets: ["latin"] })
@@ -19,26 +19,27 @@ export default function RootLayout({
 }>) {
 	return (
 		<html lang="en">
-			<NavbarMenu />
-			<body className="max-w-7xl m-auto pt-40">
-				<main>{children}</main>
+			<body className={`${inter.className} max-w-6xl m-auto`}>
+				<div className="sticky top-0 z-50 bg-white shadow-sm">
+					<div className="flex justify-center">
+						<Navbar />
+					</div>
+				</div>
 
+				{/* Main Content */}
+				<div className="pt-16">
+					<main>{children}</main>
+				</div>
+
+				{/* Footer */}
 				<Card>
-					<CardDescription className="container mx-auto px-6 py-4">
-						<div className="flex justify-between">
-							<div>
-								<p className="font-bold text-lg">Mövenpick Resort Kuredhivaru Maldives</p>
-								<p className="mt-2 text-sm">© {new Date().getFullYear()} Hung Nguyen</p>
-
-								<Link href="/privacy">
-									<p className="text-sm hover:underline">Privacy Policy</p>
-								</Link>
-								<Link href="/terms">
-									<p className="text-sm hover:underline">Terms of Service</p>
-								</Link>
-							</div>
-						</div>
-					</CardDescription>
+					<div className="flex items-center justify-between">
+						<CardDescription className="container px-6  m-auto text-center py-4">
+							Mövenpick Resort Kuredhivaru Maldives <br /> © {new Date().getFullYear()} Hung Nguyen <br />
+							<Link href="/privacy">Privacy Policy</Link> <br />
+							<Link href="/terms">Terms of Service</Link>
+						</CardDescription>
+					</div>
 				</Card>
 			</body>
 		</html>

@@ -9,7 +9,7 @@ export default function BentoGridDemo() {
 	return (
 		<BentoGrid className="max-w-4xl mx-auto md:auto-rows-[20rem]">
 			{items.map((item, i) => (
-				<Link href={item.url} key={i}>
+				<Link key={i} href={item.url}>
 					<BentoGridItem
 						key={i}
 						title={item.title}
