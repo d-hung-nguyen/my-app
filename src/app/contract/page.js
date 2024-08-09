@@ -3,7 +3,7 @@ import { Table, TableBody, TableCell, TableHead, TableRow } from "../../componen
 
 export default function ContractPage() {
 	return (
-		<div className="flex flex-col">
+		<div className="flex flex-col justify-center">
 			<Card>
 				<CardHeader>
 					<CardTitle>Mövenpick Resort Kuredhivaru Maldives FIT Static Rate Agreement 2023/2024</CardTitle>

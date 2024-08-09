@@ -2,6 +2,8 @@ import type { Metadata } from "next"
 import { Inter } from "next/font/google"
 import "./globals.css"
 import Link from "next/link"
+import { NavbarMenu } from "@/components/Navbar"
+import { Card, CardDescription } from "@/components/ui/card"
 
 const inter = Inter({ subsets: ["latin"] })
 
@@ -17,49 +19,27 @@ export default function RootLayout({
 }>) {
 	return (
 		<html lang="en">
-			<body className=" p-4 m-auto">
-				{/* Header */}
-				<header className="bg-white shadow-md">
-					<div className="container mx-auto px-6 py-4 flex justify-between items-center">
-						<Link href="/">
-							<text className="text-xl font-bold text-gray-800">Mövenpick Resort Kuredhivaru Maldives</text>
-						</Link>
-						<nav className="space-x-6">
-							<Link href="/">
-								<text className="text-gray-600 hover:text-gray-800">Home</text>
-							</Link>
-							<Link href="/rate-calculator">
-								<text className="text-gray-600 hover:text-gray-800">Rate calculator</text>
-							</Link>
-							<Link href="/contract">
-								<text className="text-gray-600 hover:text-gray-800">Contract</text>
-							</Link>
-						</nav>
-					</div>
-				</header>
-
-				{/* Main Content */}
+			<NavbarMenu />
+			<body className="max-w-7xl m-auto pt-40">
 				<main>{children}</main>
 
-				{/* Footer */}
-				<footer className="bg-gray-800 text-white">
-					<div className="container mx-auto px-6 py-4">
+				<Card>
+					<CardDescription className="container mx-auto px-6 py-4">
 						<div className="flex justify-between">
 							<div>
-								<text className="font-bold text-lg">Mövenpick Resort Kuredhivaru Maldives</text>
-								<text className="mt-2 text-sm">© {new Date().getFullYear()} Hung Nguyen</text>
-							</div>
-							<div className="space-x-6">
+								<p className="font-bold text-lg">Mövenpick Resort Kuredhivaru Maldives</p>
+								<p className="mt-2 text-sm">© {new Date().getFullYear()} Hung Nguyen</p>
+
 								<Link href="/privacy">
-									<text className="text-sm hover:underline">Privacy Policy</text>
+									<p className="text-sm hover:underline">Privacy Policy</p>
 								</Link>
 								<Link href="/terms">
-									<text className="text-sm hover:underline">Terms of Service</text>
+									<p className="text-sm hover:underline">Terms of Service</p>
 								</Link>
 							</div>
 						</div>
-					</div>
-				</footer>
+					</CardDescription>
+				</Card>
 			</body>
 		</html>
 	)
