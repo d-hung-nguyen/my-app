@@ -1,7 +1,7 @@
 "use client"
 import { useState } from "react"
 import { Button } from "./ui/button"
-import { Card, CardHeader, CardTitle } from "./ui/card"
+import { Card, CardDescription, CardHeader, CardTitle } from "./ui/card"
 import { Input } from "./ui/input"
 import { Label } from "./ui/label"
 import { Select } from "./ui/select"
@@ -185,25 +185,25 @@ export default function RoomRateCalculator() {
 	}
 
 	return (
-		<div className="p-6 max-w-2xl mx-auto">
+		<Card className="p-4">
 			<h1 className="p-2xl font-bold mb-4">FIT Static Rate Agreement 2023/2024</h1>
-			<CardTitle>
+			<text>
 				This agreement is made by and between Zen Resort Pvt Ltd, the owner of Mövenpick Resort Kuredhivaru Maldives, and Luxe Voyage
 				LTD, valid from <span className="p-indigo-600 font-semibold">21 December 2023 to 25 December 2024</span>, applicable for all
 				markets.
-			</CardTitle>
+			</text>
 
 			<Card className="p-4 bg-gray-50 mt-6">
-				<CardTitle htmlFor="checkin">Check-In Date:</CardTitle>
-				<Input type="date" id="checkin" value={checkin} onChange={(e) => setCheckin(e.target.value)} required className="mb-4" />
+				<Label htmlFor="checkin">Check-In Date:</Label>
+				<Input type="date" id="checkin" value={checkin} onChange={(e) => setCheckin(e.target.value)} />
 
-				<CardTitle htmlFor="checkout">Check-Out Date:</CardTitle>
-				<Input type="date" id="checkout" value={checkout} onChange={(e) => setCheckout(e.target.value)} required className="mb-4" />
+				<Label htmlFor="checkout">Check-Out Date:</Label>
+				<Input type="date" id="checkout" value={checkout} onChange={(e) => setCheckout(e.target.value)} />
 
-				<CardTitle htmlFor="adults">Number of Adults:</CardTitle>
-				<Input type="number" id="adults" value={adults} onChange={(e) => setAdults(e.target.value)} min="1" required className="mb-4" />
+				<Label htmlFor="adults">Number of Adults:</Label>
+				<Input type="number" id="adults" value={adults} onChange={(e) => setAdults(e.target.value)} min="1" />
 
-				<CardTitle htmlFor="children">Number of Children:</CardTitle>
+				<Label htmlFor="children">Number of Children:</Label>
 				<Input
 					type="number"
 					id="children"
@@ -214,8 +214,8 @@ export default function RoomRateCalculator() {
 					className="mb-4"
 				/>
 
-				<CardTitle htmlFor="room-type">Room Type:</CardTitle>
-				<Select id="room-type" value={roomType} onChange={(e) => setRoomType(e.target.value)} required className="mb-4">
+				<Label htmlFor="room-type">Room Type:</Label>
+				<Select id="room-type" value={roomType} onChange={(e) => setRoomType(e.target.value)}>
 					{Object.keys(roomTypes).map((type) => (
 						<option key={type} value={type}>
 							{type}
@@ -224,15 +224,15 @@ export default function RoomRateCalculator() {
 				</Select>
 
 				<div className="mt-4">
-					<CardTitle>
+					<Label>
 						<strong>Maximum Occupancy:</strong> {roomTypes[roomType].maxAdults} adults, {roomTypes[roomType].maxChildren} children
-					</CardTitle>
-					<CardTitle>
+					</Label>
+					<Label>
 						<strong>Transfer Rates:</strong> USD 625 per adult, USD 390 per child (2-11.99 years)
-					</CardTitle>
-					<CardTitle>
+					</Label>
+					<Label>
 						<strong>Meal Plan:</strong> Daily breakfast at ONU Marché included
-					</CardTitle>
+					</Label>
 				</div>
 
 				<Button className="p-4 w-full" onClick={handleCalculation}>
@@ -244,18 +244,18 @@ export default function RoomRateCalculator() {
 					<div className="mt-6 p-4 bg-white shadow-md rounded-md">
 						<h3 className="p-lg font-semibold">Total Cost: ${totalCost} (including transfers)</h3>
 						<div className="mt-4">
-							<CardTitle>
+							<Label>
 								<strong>Base Room Cost:</strong> ${costBreakdown.baseCost}
-							</CardTitle>
-							<CardTitle>
+							</Label>
+							<Label>
 								<strong>Extra Guest Cost:</strong> ${costBreakdown.extraGuestCost}
-							</CardTitle>
-							<CardTitle>
+							</Label>
+							<Label>
 								<strong>Transfer Cost:</strong> ${costBreakdown.transferCost}
-							</CardTitle>
-							<CardTitle>
+							</Label>
+							<Label>
 								<strong>Total Discount:</strong> -${costBreakdown.discount}
-							</CardTitle>
+							</Label>
 						</div>
 					</div>
 				)}
@@ -265,12 +265,12 @@ export default function RoomRateCalculator() {
 						<h3 className="p-lg font-semibold">
 							Deposit Required: ${policyDetails.dueAmount} by {policyDetails.dueDate}
 						</h3>
-						<CardTitle>
+						<Label>
 							<strong>Cancellation Policy:</strong> {policyDetails.cancellationPolicy}
-						</CardTitle>
+						</Label>
 					</div>
 				)}
 			</Card>
-		</div>
+		</Card>
 	)
 }
